@@ -7,7 +7,7 @@ Let's make a game!
 	version:0.1.0
 
 Settings
-	background:https://orteil.dashnet.org/igm/stuff/meadow.jpg
+	background:https://upload.wikimedia.org/wikipedia/commons/8/87/WinonaSavingsBankVault.jpg
 	building cost increase:115%
 	building cost refund:50%
 	spritesheet:icons, 48 by 48, https://orteil.dashnet.org/igm/stuff/bunnyIcons.png
