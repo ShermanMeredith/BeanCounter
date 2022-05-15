@@ -84,7 +84,7 @@ Resources
 		class:noBackground
 		show earned
         on tick:
-            if (this > 10)
+            if (this >= 10)
                 show eatBeanButton
             else if (this = 0)
                 hide eatBeanButton
@@ -100,7 +100,7 @@ Resources
         on tick:
             if (this > 0)
                 show eatPepperButton
-            else if (this = 0)
+            else
                 hide eatPepperButton
             end
         end
