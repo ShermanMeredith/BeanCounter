@@ -11,7 +11,7 @@ Settings
 	building cost increase:115%
 	building cost refund:50%
 	spritesheet:icons, 48 by 48, https://orteil.dashnet.org/igm/stuff/bunnyIcons.png
-	stylesheet:https://orteil.dashnet.org/igm/stuff/bigBlue.css
+	//stylesheet:https://orteil.dashnet.org/igm/stuff/bigBlue.css
 
 Layout
 	use default
@@ -138,29 +138,29 @@ Buildings
 		on click:anim glow
 
     *abacus|abacuses
-        name:Abacus|abacuses
+        name:Abacus
         desc:An archaic device to help count your beans
         icon:icons[3,0]
-        cost:50 beans
+        cost:15 beans
         on tick:yield 1 bean
-        req:20 beans:earned
+        req:10 beans:earned
     
 		
-	*sortingMachine|sortingMachine
-		name:Bean sorting machine|Bean sorting machines
+	*sortingMachine|sortingMachines
+		name:Bean sorting machine
 		desc:A simple machine to count your beans
 		icon:icons[3,0]
-		cost:500 beans
+		cost:100 beans
 		on tick:yield 10 beans
-		req:120 beans:earned
+		req:50 beans:earned
 
     *conveyorBelt|conveyorBelts
-        name:Conveyor belt|Conveyor belts
+        name:Conveyor belt
         desc:An assembly line for counting beans
         icon:icons[3,0]
         cost:1200 beans
         on tick:yield 50 beans
-        req:750 beans:earned
+        req:200 beans:earned
 		
 Upgrades
 	*TEMPLATE
