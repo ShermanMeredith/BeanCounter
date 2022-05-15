@@ -22,7 +22,7 @@ Buttons
 		desc:Click this bean to count it
 		on click:anim icon rubberBand
 		on click:yield 1 bean
-		icon:https://orteil.dashnet.org/igm/stuff/bunny.png
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/bean.png
 		no text
 		class:bigButton hasFlares
 		icon class:shadowed
@@ -78,7 +78,7 @@ Resources
 	*bean|beans
 		name:Bean|Beans
 		desc:These are your beans
-		icon:icons[0,0]
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/bean.png
 		class:noBackground
 		show earned
 		
