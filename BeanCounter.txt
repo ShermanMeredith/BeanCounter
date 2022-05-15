@@ -39,6 +39,7 @@ Buttons
             end
         end
         icon class:shadowed
+        hidden
 
     *eatPepperButton
         name:Eat a pepper
@@ -50,6 +51,7 @@ Buttons
             end
         end
         icon class:shadowed
+        hidden
 
     *releaseBeanButton
         name:Release beans
@@ -81,6 +83,13 @@ Resources
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/bean.png
 		class:noBackground
 		show earned
+        on tick:
+            if (this > 10)
+                show eatBeanButton
+            else if (this = 0)
+                hide eatBeanButton
+            end
+        end
 		
 	*pepper|peppers
 		name:Pepper|Peppers
@@ -88,6 +97,13 @@ Resources
 		icon:icons[0,1]
 		class:noBackground
 		hidden when 0
+        on tick:
+            if (this > 0)
+                show eatPepperButton
+            else if (this = 0)
+                hide eatPepperButton
+            end
+        end
 
     *eatenBean|eatenBeans
         name:Eaten bean|Eaten beans
@@ -95,7 +111,7 @@ Resources
         class:noBackground
         hidden when 0
         on tick:
-            if (eatenBeans>=10)
+            if (this>=10)
                 show releaseBeanButton
             end
         end
@@ -106,7 +122,7 @@ Resources
         class:noBackground
         hidden when 0
         on tick:
-            if (eatenPeppers>=10)
+            if (this>=10)
                 show releasePepperButton
             end
         end
