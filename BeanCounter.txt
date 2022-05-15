@@ -1,0 +1,156 @@
+Let's make a game!
+	name:Bean Counter
+	by:Thnod
+	desc:beans
+	created:13/05/2022
+	updated:13/05/2022
+	version:0.1.0
+
+Settings
+	background:https://orteil.dashnet.org/igm/stuff/meadow.jpg
+	building cost increase:115%
+	building cost refund:50%
+	spritesheet:icons, 48 by 48, https://orteil.dashnet.org/igm/stuff/bunnyIcons.png
+	stylesheet:https://orteil.dashnet.org/igm/stuff/bigBlue.css
+
+Layout
+	use default
+		
+Buttons
+	*beanButton
+		name:Count the bean
+		desc:Click this bean to count it
+		on click:anim icon rubberBand
+		on click:yield 1 bean
+		icon:https://orteil.dashnet.org/igm/stuff/bunny.png
+		no text
+		class:bigButton hasFlares
+		icon class:shadowed
+		tooltip origin:bottom
+		tooltip class:red
+
+    *eatBeanButton
+        name:Eat a counted bean
+        desc:You know you want to
+        on click:
+            if (beans > 0)
+                yield 1 eatenBean
+                lose 1 bean
+            end
+        end
+        icon class:shadowed
+
+    *eatPepperButton
+        name:Eat a pepper
+        desc:Spicy
+        on click:
+            if (peppers > 0)
+                yield 1 eatenPepper
+                lose 1 pepper
+            end
+        end
+        icon class:shadowed
+
+    *releaseBeanButton
+        name:Release beans
+        desc:What's the worst that could happen?
+        on click:
+            yield eatenBeans releasedBeans
+            lose eatenBeans
+            hide this
+        end
+        icon class:shadowed
+        hidden
+
+    *releasePepperButton
+        name:Release peppers
+        desc:What's the worst that could happen?
+        on click:
+            yield eatenPeppers releasedPeppers
+            lose eatenPeppers
+            hide this
+        end
+        icon class:shadowed
+        hidden
+
+		
+Resources
+	*bean|beans
+		name:Bean|Beans
+		desc:These are your beans
+		icon:icons[0,0]
+		class:noBackground
+		show earned
+		
+	*pepper|peppers
+		name:Pepper|Peppers
+		desc:Spicy!
+		icon:icons[0,1]
+		class:noBackground
+		hidden when 0
+
+    *eatenBean|eatenBeans
+        name:Eaten bean|Eaten beans
+        desc:Number of beans you've eaten
+        class:noBackground
+        hidden when 0
+        on tick:
+            if (eatenBeans>=10)
+                show releaseBeanButton
+            end
+        end
+
+    *eatenPepper|eatenPeppers
+        name:Eaten pepper|Eaten peppers
+        desc:Number of peppers you've eaten
+        class:noBackground
+        hidden when 0
+        on tick:
+            if (eatenPeppers>=10)
+                show releasePepperButton
+            end
+        end
+
+    *releasedBean|releasedBeans
+        hidden
+
+    *releasedPepper|releasedPeppers
+        hidden
+		
+Buildings
+	*TEMPLATE
+		on click:anim glow
+
+    *abacus|abacuses
+        name:Abacus|abacuses
+        desc:An archaic device to help count your beans
+        icon:icons[3,0]
+        cost:50 beans
+        on tick:yield 1 bean
+        req:20 beans:earned
+    
+		
+	*sortingMachine|sortingMachine
+		name:Bean sorting machine|Bean sorting machines
+		desc:A simple machine to count your beans
+		icon:icons[3,0]
+		cost:500 beans
+		on tick:yield 10 beans
+		req:120 beans:earned
+
+    *conveyorBelt|conveyorBelts
+        name:Conveyor belt|Conveyor belts
+        desc:An assembly line for counting beans
+        icon:icons[3,0]
+        cost:1200 beans
+        on tick:yield 50 beans
+        req:750 beans:earned
+		
+Upgrades
+	*TEMPLATE
+		on click:anim glow
+		
+Achievements
+	*TEMPLATE
+		on click:anim glow
+		
