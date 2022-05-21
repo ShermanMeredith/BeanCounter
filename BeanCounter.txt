@@ -142,7 +142,7 @@ Buildings
         desc:Coffee helps you count faster
         icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_coffeemachine.png
         cost:15 beans
-        on tick: yield 0.1 bean
+        on tick:yield 0.1 bean
 
     *abacus|abacuses
         name:Abacus
