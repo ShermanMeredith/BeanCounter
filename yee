@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        
+        <title>
+            yee
+        </title>
+        
+        <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+
+        <script type="text/javascript"></script>
+
+        <style type="text/css">
+            canvas {
+                border: 10px double white;
+                position: fixed;
+                bottom: 15%;
+                right: 20%;
+            }
+
+            body {
+                position: fixed;
+                top: 5px;
+                left: 45%;
+                color: white;
+                background: black;
+            }
+
+            div a{
+                position: absolute;
+                top: 450px;
+                right: -220px;
+                text-decoration: none;
+                color: white;
+            }
+
+            span {
+                background:black;
+            }
+        </style>
+
+        <style>
+            body {
+                background-image:url("https://ak1.picdn.net/shutterstock/videos/1602421/thumb/1.jpg");
+                background-size: 100%;
+            }
+        </style>
+    </head>
+
+    <body onload="draw();">
+        <canvas id="tutorial" width="600" height="600"></canvas>
+
+        <div>
+            <a href="./dynamic5.html">
+                take me back
+            </a>
+        </div>
+        <button onclick="play()"></button>
+
+        <span>
+            <– click this to make a rectangle!
+        </span>
+
+        <script>
+            var canvas;
+            var n = 0;
+            
+            function draw() {
+                canvas = document.getElementById('tutorial');
+                if (canvas.getContext) {
+                    var ctx = canvas.getContext('2d');
+                }
+
+                var ctx = canvas.getContext('2d');
+                ctx.fillStyle = "white"; //!!!!!!
+                ctx.fillRect(0,0,600,600);
+
+                $("button").click(function() {
+                    n1 = Math.floor((Math.random() * 400) -100);
+                    n2 = Math.floor((Math.random() * 400)-100);
+                    n3 = Math.floor((Math.random() * 500) );
+                    n4 = Math.floor((Math.random() * 500) );
+
+                    function get_random_color() {
+                        return "#" + (Math.round(Math.random() * 0XFFFFFF)).toString(16);
+                    }
+
+                    var ctx = canvas.getContext('2d');
+                    ctx.fillStyle = get_random_color(); //!!!!!!
+                    ctx.fillRect(n3,n4,n1,n2);
+
+                    n++;
+                    if(n=="10") {
+                        alert("hey, nice job!")
+                    } else if (n=="20") {
+                        alert("congrats! you have created ~ " + n + " ~ rects!")
+                    } else if (n=="30") {
+                        alert("have you picked a favorite rect yet?")
+                    } else if (n=="40") {
+                        alert("amazing! you have now created ~ " + n + " ~ rects!")
+                    } else if (n=="5") {
+                        alert("congrats! you have created ~ " + n + " ~ rects!")
+                    } else if (n=="50") {
+                        alert("oh em jii! ~ " + n + " ~ rects!")
+                    } else if (n=="75") {
+                        alert("ooøøoOoO°°0oØ0o0OO0O! you have created ~ " + n + " ~ rects!")
+                    } else if (n=="2") {
+                        alert("wow, cool rect!")
+                    } else if (n=="150") {
+                        alert("<_<")
+                    } else if (n=="250") {
+                        alert("why are you still pressing....")
+                    } else if (n=="500") {
+                        alert("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+                    } else if (n=="100") {
+                        alert("congrats! you have created ~ " + n + " ~ rects! that's a lot.")
+                    };
+                    // alert(n1);
+                });
+            } //end draw?
+
+            function play(){
+            var audio = document.getElementById("audio");
+            audio.pause();
+            audio.currentTime=0;
+            audio.play();}
+        </script>
+        
+        <audio id="audio" src="./sounds/ESM_Vibrant_Game_Postive_Achievement_4_Arcade_Cartoon_Quirky_Comedy_Comedic_Kid_Childish_Fun_Bouncy.wav"></audio>
+    </body>
+</html>

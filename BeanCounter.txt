@@ -64,7 +64,7 @@ Buttons
         icon class:shadowed
         hidden
 
-    *releasePepperButton
+    *releasePepperButton 
         name:Release peppers
         desc:What's the worst that could happen?
         on click:
@@ -137,36 +137,97 @@ Buildings
 	*TEMPLATE
 		on click:anim glow
 
+    *coffee machine|coffee machines
+        name:Coffee machine
+        desc:Coffee helps you count faster
+        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_coffeemachine.png
+        cost:15 beans
+        on tick: yield 0.1 bean
+
     *abacus|abacuses
         name:Abacus
         desc:An archaic device to help count your beans
-        icon:icons[3,0]
-        cost:15 beans
+        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_abacus.png
+        cost:50 beans
         on tick:yield 1 bean
         req:10 beans:earned
-    
 		
-	*sortingMachine|sortingMachines
-		name:Bean sorting machine
-		desc:A simple machine to count your beans
-		icon:icons[3,0]
-		cost:100 beans
+	*scale|scales
+		name:Scale
+		desc:A device to count beans in bulk
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_scale.png
+		cost:550 beans
 		on tick:yield 10 beans
-		req:50 beans:earned
+		req:100 beans:earned
+
+    *calculator|calculators
+        name:Calculator
+        desc:Helps you count
+        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_calculator.png
+        cost:6000 beans
+        on tick:yield 50 beans
+        req:1200 beans:earned
 
     *conveyorBelt|conveyorBelts
         name:Conveyor belt
-        desc:An assembly line for counting beans
+        desc:Sorts the incoming beans to count them
+        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_conveyorbelt.png
+        cost:65000 beans
+        on tick:yield 250 beans
+        req:15000 beans:earned
+
+    *computer|computers
+        name:Computer
+        desc:Computes beans lightning fast
         icon:icons[3,0]
-        cost:1200 beans
-        on tick:yield 50 beans
+        cost:600000 beans
+        on tick:yield 1500 beans
+        req:120000 beans:earned
+
+    *supercomputer|supercomputers
+        name:Supercomputer
+        desc:Specifically designed to solve complex scientific and industrial challenges
+        icon:icons[3,0]
+        cost:10000000 beans
+        on tick:yield 8000 beans
+        req:2000000 beans:earned
+
+    *internet|internets
+        name:Internet
+        desc:Harness the power of every computer on the planet
+        icon:icons[3,0]
+        cost:165000000 beans
+        on tick:yield 50000 beans
         req:200 beans:earned
-		
+
+    *artificialIntelligence|artificialIntelligences
+        name:Artificial Intelligence
+        desc:The singularity is here to help you count beans
+        icon:icons[3,0]
+        cost:2550000000 beans
+        on tick:yield 250000 beans
+        req:500000000 beans:earned
+
+    *prescience
+        name:Prescience
+        desc:Know how many beans there are ahead of time
+        icon:icons[3,0]
+        cost:37500000000 beans
+        on tick:yield 1500000 beans
+        req:8000000000 beans:earned
+
+    *omniscience
+        name:Omniscience
+        desc:Know how many beans will ever be
+        icon:icons[3,0]
+        cost:1000000000000 beans
+        on tick:yield 1666000 beans
+        req:200000000000 beans:earned
+
 Upgrades
 	*TEMPLATE
 		on click:anim glow
-		
+
 Achievements
 	*TEMPLATE
 		on click:anim glow
-		
