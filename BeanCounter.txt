@@ -224,9 +224,99 @@ Buildings
         on tick:yield 1666000 beans
         req:200000000000 beans:earned
 
+//=============================================================================
 Upgrades
+//=============================================================================
 	*TEMPLATE
 		on click:anim glow
+
+    //-------------------------------------------------------------------------
+    // COFFEE UPGRADES
+    //-------------------------------------------------------------------------
+	*specialtyBeans
+		name:Specialty beans
+		desc:Better beans for better bean counting.<//><b>Effect:</b><.>Coffee machines are twice as efficient
+		icon:icons[1,1]
+		cost:100 beans
+		passive:multiply bean yield of coffeeMachines by 2
+		req:10 beans:earned
+
+	*precisionGrinder
+		name:Precision grinder
+		desc:Consistent particle size enables uniform coffee extraction for a better brew.<//><b>Effect:</b><.>Coffee machines are twice as efficient
+		icon:icons[1,1]
+		cost:1000 beans
+		passive:multiply bean yield of coffeeMachines by 2
+		req:100 beans:earned
+
+	*mokaPots
+		name:Moka pots
+		desc:Brew a stronger coffee right on the stove top.<//><b>Effect:</b><.>Coffee machines are twice as efficient
+		icon:icons[1,1]
+		cost:10000 beans
+		passive:multiply bean yield of coffeeMachines by 2
+		req:1000 beans:earned
+
+	*roasters
+		name:In-house roaster
+		desc:Personalized coffee for that perfect bean counting mood.<//><b>Effect:</b><.>Coffee machines are twice as efficient
+		icon:icons[1,1]
+		cost:100000 beans
+		passive:multiply bean yield of coffeeMachines by 2
+		req:10000 beans:earned
+
+	*espresso
+		name:Espresso attachment
+		desc:9 bars of pressure for the maximum coffee strength.<//><b>Effect:</b><.>Coffee machines are twice as efficient
+		icon:icons[1,1]
+		cost:1000000 beans
+		passive:multiply bean yield of coffeeMachines by 2
+		req:10 beans:earned
+
+	*baristas
+		name:Personal barista
+		desc:Pretty sure she’s flirting with you, go ask her out.<//><b>Effect:</b><.>Coffee machines are twice as efficient
+		icon:icons[1,1]
+		cost:100000000 beans
+		passive:multiply bean yield of coffeeMachines by 2
+		req:10 beans:earned
+
+	*latteArt
+		name:Latte art
+		desc:Coffee with a leaf is better than coffee with no leaf.<//><b>Effect:</b><.>Coffee machines are twice as efficient
+		icon:icons[1,1]
+		cost:10000000000 beans
+		passive:multiply bean yield of coffeeMachines by 2
+		req:10 beans:earned
+
+	*coldBrew
+		name:Cold brew
+		desc:Brew for 24 hours to get a thick coffee concentrate.<//><b>Effect:</b><.>Coffee machines are twice as efficient
+		icon:icons[1,1]
+		cost:1000000000000 beans
+		passive:multiply bean yield of coffeeMachines by 2
+		req:10 beans:earned
+
+	*ivDrip
+		name:IV drip
+		desc:Your mouth is freed up to count beans faster.<//><b>Effect:</b><.>Coffee machines are twice as efficient
+		icon:icons[1,1]
+		cost:1000000000000000 beans
+		passive:multiply bean yield of coffeeMachines by 2
+		req:10 beans:earned
+
+	*particleAccelerator
+		name:Particle accelerator
+		desc:Break coffee into fundamental particles before brewing.<//><b>Effect:</b><.>Coffee machines are twice as efficient
+		icon:icons[1,1]
+		cost:1000000000000000000 beans
+		passive:multiply bean yield of coffeeMachines by 2
+		req:10 beans:earned
+
+    //-------------------------------------------------------------------------
+    // ABACUS UPGRADES
+    //-------------------------------------------------------------------------
+
 
 Achievements
 	*TEMPLATE
