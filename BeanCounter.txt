@@ -239,7 +239,7 @@ Upgrades
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
 		cost:100 beans
 		passive:multiply bean yield of coffeeMachines by 2
-		req:this:cost/10
+        req:1 coffeeMachines
 
 	*precisionGrinder
 		name:Precision grinder
@@ -247,7 +247,7 @@ Upgrades
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
 		cost:1000 beans
 		passive:multiply bean yield of coffeeMachines by 2
-		req:100 beans:earned
+		req:5 coffeeMachines
 
 	*mokaPots
 		name:Moka pots
@@ -255,7 +255,7 @@ Upgrades
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
 		cost:10000 beans
 		passive:multiply bean yield of coffeeMachines by 2
-		req:1000 beans:earned
+		req:10 coffeeMachines
 
 	*roasters
 		name:In-house roaster
@@ -263,7 +263,7 @@ Upgrades
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
 		cost:100000 beans
 		passive:multiply bean yield of coffeeMachines by 2
-		req:10000 beans:earned
+		req:25 coffeeMachines
 
 	*espresso
 		name:Espresso attachment
@@ -271,7 +271,7 @@ Upgrades
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
 		cost:1000000 beans
 		passive:multiply bean yield of coffeeMachines by 2
-		req:10 beans:earned
+		req:50 coffeeMachines
 
 	*baristas
 		name:Personal barista
@@ -279,7 +279,7 @@ Upgrades
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
 		cost:100000000 beans
 		passive:multiply bean yield of coffeeMachines by 2
-		req:10 beans:earned
+		req:100 coffeeMachines
 
 	*latteArt
 		name:Latte art
@@ -287,7 +287,7 @@ Upgrades
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
 		cost:10000000000 beans
 		passive:multiply bean yield of coffeeMachines by 2
-		req:10 beans:earned
+		req:150 coffeeMachines
 
 	*coldBrew
 		name:Cold brew
@@ -295,7 +295,7 @@ Upgrades
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
 		cost:1000000000000 beans
 		passive:multiply bean yield of coffeeMachines by 2
-		req:10 beans:earned
+		req:200 coffeeMachines
 
 	*ivDrip
 		name:IV drip
@@ -303,7 +303,7 @@ Upgrades
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
 		cost:1000000000000000 beans
 		passive:multiply bean yield of coffeeMachines by 2
-		req:10 beans:earned
+		req:250 coffeeMachines
 
 	*particleAccelerator
 		name:Particle accelerator
@@ -311,7 +311,7 @@ Upgrades
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
 		cost:1000000000000000000 beans
 		passive:multiply bean yield of coffeeMachines by 2
-		req:10 beans:earned
+		req:300 coffeeMachines
 
     //-------------------------------------------------------------------------
     // ABACUS UPGRADES
