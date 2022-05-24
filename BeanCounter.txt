@@ -7,7 +7,7 @@ Let's make a game!
 	desc:beans
 	created:13/05/2022
 	updated:20/05/2022
-	version:0.2.0
+	version:0.2.1
 
 //=============================================================================
 Settings
@@ -157,11 +157,17 @@ Resources
     // --------------
     *coffeeMachineBase
         is always:10
-        hidden
-
-    *coffeeMachineCost
-        is always:coffeeMachineBase * pow(coffeeMachines+1,(costPercentIncrease/100))
-        on tick:multiply cost of coffeeMachine by coffeeMachineCost
+        on tick:multiply cost of coffeeMachine by (coffeeMachineBase * pow(coffeeMachines+1,(costPercentIncrease/100)))
+        on tick:multiply cost of coffeeUpgrade1 by (coffeeMachineBase * pow(10,1))
+        on tick:multiply cost of coffeeUpgrade2 by (coffeeMachineBase * pow(10,2))
+        on tick:multiply cost of coffeeUpgrade3 by (coffeeMachineBase * pow(10,3))
+        on tick:multiply cost of coffeeUpgrade4 by (coffeeMachineBase * pow(10,4))
+        on tick:multiply cost of coffeeUpgrade5 by (coffeeMachineBase * pow(10,5))
+        on tick:multiply cost of coffeeUpgrade6 by (coffeeMachineBase * pow(10,7))
+        on tick:multiply cost of coffeeUpgrade7 by (coffeeMachineBase * pow(10,9))
+        on tick:multiply cost of coffeeUpgrade8 by (coffeeMachineBase * pow(10,11))
+        on tick:multiply cost of coffeeUpgrade9 by (coffeeMachineBase * pow(10,14))
+        on tick:multiply cost of coffeeUpgrade10 by (coffeeMachineBase * pow(10,17))
         hidden
 
     *coffeeMachineBeans
@@ -172,11 +178,17 @@ Resources
     // ------
     *abacusBase
         is always:50
-        hidden
-
-    *abacusCost
-        is always:abacusBase * pow(abacuses+1,(costPercentIncrease/100))
-        on tick:multiply cost of abacus by abacusCost
+        on tick:multiply cost of abacus by (abacusBase * pow(abacuses+1,(costPercentIncrease/100)))
+        on tick:multiply cost of abacusUpgrade1 by (abacusBase * pow(10,1))
+        on tick:multiply cost of abacusUpgrade2 by (abacusBase * pow(10,2))
+        on tick:multiply cost of abacusUpgrade3 by (abacusBase * pow(10,3))
+        on tick:multiply cost of abacusUpgrade4 by (abacusBase * pow(10,4))
+        on tick:multiply cost of abacusUpgrade5 by (abacusBase * pow(10,5))
+        on tick:multiply cost of abacusUpgrade6 by (abacusBase * pow(10,7))
+        on tick:multiply cost of abacusUpgrade7 by (abacusBase * pow(10,9))
+        on tick:multiply cost of abacusUpgrade8 by (abacusBase * pow(10,11))
+        on tick:multiply cost of abacusUpgrade9 by (abacusBase * pow(10,14))
+        on tick:multiply cost of abacusUpgrade10 by (abacusBase * pow(10,17))
         hidden
 
     *abacusBeans
@@ -187,11 +199,17 @@ Resources
     // -----
     *scaleBase
         is always:550
-        hidden
-
-    *scaleCost
-        is always:scaleBase * pow(scales+1,(costPercentIncrease/100))
-        on tick:multiply cost of scale by scaleCost
+        on tick:multiply cost of scale by (scaleBase * pow(scales+1,(costPercentIncrease/100)))
+        on tick:multiply cost of scaleUpgrade1 by (scaleBase * pow(10,1))
+        on tick:multiply cost of scaleUpgrade2 by (scaleBase * pow(10,2))
+        on tick:multiply cost of scaleUpgrade3 by (scaleBase * pow(10,3))
+        on tick:multiply cost of scaleUpgrade4 by (scaleBase * pow(10,4))
+        on tick:multiply cost of scaleUpgrade5 by (scaleBase * pow(10,5))
+        on tick:multiply cost of scaleUpgrade6 by (scaleBase * pow(10,7))
+        on tick:multiply cost of scaleUpgrade7 by (scaleBase * pow(10,9))
+        on tick:multiply cost of scaleUpgrade8 by (scaleBase * pow(10,11))
+        on tick:multiply cost of scaleUpgrade9 by (scaleBase * pow(10,14))
+        on tick:multiply cost of scaleUpgrade10 by (scaleBase * pow(10,17))
         hidden
 
     *scaleBeans
@@ -202,11 +220,17 @@ Resources
     // ----------
     *calculatorBase
         is always:6000
-        hidden
-
-    *calculatorCost
-        is always:calculatorBase * pow(calculators+1,(costPercentIncrease/100))
-        on tick:multiply cost of calculator by calculatorCost
+        on tick:multiply cost of calculator by (calculatorBase * pow(calculators+1,(costPercentIncrease/100)))
+        on tick:multiply cost of calculatorUpgrade1 by (calculatorBase * pow(10,1))
+        on tick:multiply cost of calculatorUpgrade2 by (calculatorBase * pow(10,2))
+        on tick:multiply cost of calculatorUpgrade3 by (calculatorBase * pow(10,3))
+        on tick:multiply cost of calculatorUpgrade4 by (calculatorBase * pow(10,4))
+        on tick:multiply cost of calculatorUpgrade5 by (calculatorBase * pow(10,5))
+        on tick:multiply cost of calculatorUpgrade6 by (calculatorBase * pow(10,7))
+        on tick:multiply cost of calculatorUpgrade7 by (calculatorBase * pow(10,9))
+        on tick:multiply cost of calculatorUpgrade8 by (calculatorBase * pow(10,11))
+        on tick:multiply cost of calculatorUpgrade9 by (calculatorBase * pow(10,14))
+        on tick:multiply cost of calculatorUpgrade10 by (calculatorBase * pow(10,17))
         hidden
 
     *calculatorBeans
@@ -217,11 +241,17 @@ Resources
     // -------------
     *conveyorBeltBase
         is always:65000
-        hidden
-
-    *conveyorBeltCost
-        is always:conveyorBeltBase * pow(conveyorBelts+1,(costPercentIncrease/100))
-        on tick:multiply cost of conveyorBelt by conveyorBeltCost
+        on tick:multiply cost of conveyorBelt by (conveyorBeltBase * pow(conveyorBelts+1,(costPercentIncrease/100)))
+        on tick:multiply cost of cBeltUpgrade1 by (conveyorBeltBase * pow(10,1))
+        on tick:multiply cost of cBeltUpgrade2 by (conveyorBeltBase * pow(10,2))
+        on tick:multiply cost of cBeltUpgrade3 by (conveyorBeltBase * pow(10,3))
+        on tick:multiply cost of cBeltUpgrade4 by (conveyorBeltBase * pow(10,4))
+        on tick:multiply cost of cBeltUpgrade5 by (conveyorBeltBase * pow(10,5))
+        on tick:multiply cost of cBeltUpgrade6 by (conveyorBeltBase * pow(10,7))
+        on tick:multiply cost of cBeltUpgrade7 by (conveyorBeltBase * pow(10,9))
+        on tick:multiply cost of cBeltUpgrade8 by (conveyorBeltBase * pow(10,11))
+        on tick:multiply cost of cBeltUpgrade9 by (conveyorBeltBase * pow(10,14))
+        on tick:multiply cost of cBeltUpgrade10 by (conveyorBeltBase * pow(10,17))
         hidden
 
     *conveyorBeltBeans
@@ -232,11 +262,7 @@ Resources
     // --------
     *computerBase
         is always:600000
-        hidden
-
-    *computerCost
-        is always:computerBase * pow(computers+1,(costPercentIncrease/100))
-        on tick:multiply cost of computer by computerCost
+        on tick:multiply cost of computer by (computerBase * pow(computers+1,(costPercentIncrease/100)))
         hidden
     
     *computerBeans
@@ -247,11 +273,7 @@ Resources
     // -------------
     *supercomputerBase
         is always:10000000
-        hidden
-
-    *supercomputerCost
-        is always:supercomputerBase * pow(supercomputers+1,(costPercentIncrease/100))
-        on tick:multiply cost of supercomputer by supercomputerCost
+        on tick:multiply cost of supercomputer by (supercomputerBase * pow(supercomputers+1,(costPercentIncrease/100)))
         hidden
     
     *supercomputerBeans
@@ -262,11 +284,7 @@ Resources
     // --------
     *internetBase
         is always:165000000
-        hidden
-
-    *internetCost
-        is always:internetBase * pow(internets+1,(costPercentIncrease/100))
-        on tick:multiply cost of internet by internetCost
+        on tick:multiply cost of internet by (internetBase * pow(internets+1,(costPercentIncrease/100)))
         hidden
     
     *internetBeans
@@ -277,11 +295,7 @@ Resources
     // ------------------------
     *aiBase
         is always:2550000000
-        hidden
-        
-    *aiCost
-        is always:aiBase * pow(ais+1,(costPercentIncrease/100))
-        on tick:multiply cost of ai by aiCost
+        on tick:multiply cost of ai by (aiBase * pow(ais+1,(costPercentIncrease/100)))
         hidden
     
     *aiBeans
@@ -292,11 +306,7 @@ Resources
     // ----------
     *prescienceBase
         is always:37500000000
-        hidden
-
-    *prescienceCost
-        is always:prescienceBase * pow(prescience+1,(costPercentIncrease/100))
-        on tick:multiply cost of prescience by prescienceCost
+        on tick:multiply cost of prescience by (prescienceBase * pow(prescience+1,(costPercentIncrease/100)))
         hidden
     
     *prescienceBeans
@@ -308,11 +318,6 @@ Resources
     *omniscienceBase
         is always:1000000000000
         on tick:multiply cost of omniscience by (omniscienceBase * pow(omniscience+1,(costPercentIncrease/100)))
-        hidden
-    
-    *omniscienceCost
-        is always:omniscienceBase * pow(omniscience+1,(costPercentIncrease/100))
-        on tick:multiply cost of omniscience by omniscienceCost
         hidden
 
     *omniscienceBeans
@@ -436,7 +441,7 @@ Upgrades
 		name:Specialty beans
 		desc:Better beans for better bean counting.<//><b>Effect:</b><.>Coffee machines are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
-		cost:coffeeMachineBase * 10 beans
+		cost:1 bean
 		passive:multiply bean yield of coffeeMachines by 2
 		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
         req:1 coffeeMachines
@@ -445,7 +450,7 @@ Upgrades
 		name:Precision grinder
 		desc:Consistent particle size enables uniform coffee extraction for a better brew.<//><b>Effect:</b><.>Coffee machines are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
-		cost:coffeeMachineBase * pow(10,2) beans
+		cost:1 bean
 		passive:multiply bean yield of coffeeMachines by 2
 		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:5 coffeeMachines
@@ -454,7 +459,7 @@ Upgrades
 		name:Moka pots
 		desc:Brew a stronger coffee right on the stove top.<//><b>Effect:</b><.>Coffee machines are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
-		cost:coffeeMachineBase * pow(10,3) beans
+		cost:1 bean
 		passive:multiply bean yield of coffeeMachines by 2
 		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:10 coffeeMachines
@@ -463,7 +468,7 @@ Upgrades
 		name:In-house roaster
 		desc:Personalized coffee for that perfect bean counting mood.<//><b>Effect:</b><.>Coffee machines are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
-		cost:coffeeMachineBase * pow(10,4) beans
+		cost:1 bean
 		passive:multiply bean yield of coffeeMachines by 2
 		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:25 coffeeMachines
@@ -472,7 +477,7 @@ Upgrades
 		name:Espresso attachment
 		desc:9 bars of pressure for the maximum coffee strength.<//><b>Effect:</b><.>Coffee machines are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
-		cost:coffeeMachineBase * pow(10,5) beans
+		cost:1 bean
 		passive:multiply bean yield of coffeeMachines by 2
 		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:50 coffeeMachines
@@ -481,7 +486,7 @@ Upgrades
 		name:Personal barista
 		desc:Pretty sure she's flirting with you, go ask her out.<//><b>Effect:</b><.>Coffee machines are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
-		cost:coffeeMachineBase * pow(10,7) beans
+		cost:1 bean
 		passive:multiply bean yield of coffeeMachines by 2
 		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:100 coffeeMachines
@@ -490,7 +495,7 @@ Upgrades
 		name:Latte art
 		desc:Coffee with a leaf is better than coffee with no leaf.<//><b>Effect:</b><.>Coffee machines are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
-		cost:coffeeMachineBase * pow(10,9) beans
+		cost:1 bean
 		passive:multiply bean yield of coffeeMachines by 2
 		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:150 coffeeMachines
@@ -499,7 +504,7 @@ Upgrades
 		name:Cold brew
 		desc:Brew for 24 hours to get a thick coffee concentrate.<//><b>Effect:</b><.>Coffee machines are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
-		cost:coffeeMachineBase * pow(10,11) beans
+		cost:1 bean
 		passive:multiply bean yield of coffeeMachines by 2
 		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:200 coffeeMachines
@@ -508,7 +513,7 @@ Upgrades
 		name:IV drip
 		desc:Your mouth is freed up to count beans faster.<//><b>Effect:</b><.>Coffee machines are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
-		cost:coffeeMachineBase * pow(10,14) beans
+		cost:1 bean
 		passive:multiply bean yield of coffeeMachines by 2
 		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:250 coffeeMachines
@@ -517,7 +522,7 @@ Upgrades
 		name:Particle accelerator
 		desc:Break coffee into fundamental particles before brewing.<//><b>Effect:</b><.>Coffee machines are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
-		cost:coffeeMachineBase * pow(10,17) beans
+		cost:1 bean
 		passive:multiply bean yield of coffeeMachines by 2
 		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:300 coffeeMachines
@@ -529,7 +534,7 @@ Upgrades
 		name:Lubricated beads
 		desc:Slicker beads for faster counting.<//><b>Effect:</b><.>Abacuses are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
-		cost:abacusBase * 10 beans
+		cost:1 bean
 		passive:multiply bean yield of abacuses by 2
 		passive:multiply abacusBeans yield of abacuses by 2
         req:1 abacus
@@ -538,7 +543,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
-		cost:abacusBase * pow(10,2) beans
+		cost:1 bean
 		passive:multiply bean yield of abacuses by 2
 		passive:multiply abacusBeans yield of abacuses by 2
 		req:5 abacuses
@@ -547,7 +552,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
-		cost:abacusBase * pow(10,3) beans
+		cost:1 bean
 		passive:multiply bean yield of abacuses by 2
 		passive:multiply abacusBeans yield of abacuses by 2
 		req:10 abacuses
@@ -556,7 +561,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
-		cost:abacusBase * pow(10,4) beans
+		cost:1 bean
 		passive:multiply bean yield of abacuses by 2
 		passive:multiply abacusBeans yield of abacuses by 2
 		req:25 abacuses
@@ -565,7 +570,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
-		cost:abacusBase * pow(10,5) beans
+		cost:1 bean
 		passive:multiply bean yield of abacuses by 2
 		passive:multiply abacusBeans yield of abacuses by 2
 		req:50 abacuses
@@ -574,7 +579,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
-		cost:abacusBase * pow(10,7) beans
+		cost:1 bean
 		passive:multiply bean yield of abacuses by 2
 		passive:multiply abacusBeans yield of abacuses by 2
 		req:100 abacuses
@@ -583,7 +588,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
-		cost:abacusBase * pow(10,9) beans
+		cost:1 bean
 		passive:multiply bean yield of abacuses by 2
 		passive:multiply abacusBeans yield of abacuses by 2
 		req:150 abacuses
@@ -592,7 +597,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
-		cost:abacusBase * pow(10,11) beans
+		cost:1 bean
 		passive:multiply bean yield of abacuses by 2
 		passive:multiply abacusBeans yield of abacuses by 2
 		req:200 abacuses
@@ -601,7 +606,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
-		cost:abacusBase * pow(10,14) beans
+		cost:1 bean
 		passive:multiply bean yield of abacuses by 2
 		passive:multiply abacusBeans yield of abacuses by 2
 		req:250 abacuses
@@ -610,7 +615,7 @@ Upgrades
 		name:Quantum abacuses
 		desc:Count using the quantum superpositions of the beads.<//><b>Effect:</b><.>Abacuses are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
-		cost:abacusBase * pow(10,17) beans
+		cost:1 bean
 		passive:multiply bean yield of abacuses by 2
 		passive:multiply abacusBeans yield of abacuses by 2
 		req:300 abacuses
@@ -622,7 +627,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
-		cost:scaleBase * 10 beans
+		cost:1 bean
 		passive:multiply bean yield of scales by 2
 		passive:multiply abacusBeans yield of scales by 2
         req:1 scales
@@ -631,7 +636,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
-		cost:scaleBase * pow(10,2) beans
+		cost:1 bean
 		passive:multiply bean yield of scales by 2
 		passive:multiply abacusBeans yield of scales by 2
 		req:5 scales
@@ -640,7 +645,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
-		cost:scaleBase * pow(10,3) beans
+		cost:1 bean
 		passive:multiply bean yield of scales by 2
 		passive:multiply abacusBeans yield of scales by 2
 		req:10 scales
@@ -649,7 +654,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
-		cost:scaleBase * pow(10,4) beans
+		cost:1 bean
 		passive:multiply bean yield of scales by 2
 		passive:multiply abacusBeans yield of scales by 2
 		req:25 scales
@@ -658,7 +663,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
-		cost:scaleBase * pow(10,5) beans
+		cost:1 bean
 		passive:multiply bean yield of scales by 2
 		passive:multiply abacusBeans yield of scales by 2
 		req:50 scales
@@ -667,7 +672,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
-		cost:scaleBase * pow(10,7) beans
+		cost:1 bean
 		passive:multiply bean yield of scales by 2
 		passive:multiply abacusBeans yield of scales by 2
 		req:100 scales
@@ -676,7 +681,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
-		cost:scaleBase * pow(10,9) beans
+		cost:1 bean
 		passive:multiply bean yield of scales by 2
 		passive:multiply abacusBeans yield of scales by 2
 		req:150 scales
@@ -685,7 +690,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
-		cost:scaleBase * pow(10,11) beans
+		cost:1 bean
 		passive:multiply bean yield of scales by 2
 		passive:multiply abacusBeans yield of scales by 2
 		req:200 scales
@@ -694,7 +699,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
-		cost:scaleBase * pow(10,14) beans
+		cost:1 bean
 		passive:multiply bean yield of scales by 2
 		passive:multiply abacusBeans yield of scales by 2
 		req:250 scales
@@ -703,7 +708,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
-		cost:scaleBase * pow(10,17) beans
+		cost:1 bean
 		passive:multiply bean yield of scales by 2
 		passive:multiply abacusBeans yield of scales by 2
 		req:300 scales
@@ -715,7 +720,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
-		cost:calculatorBase * 10 beans
+		cost:1 bean
 		passive:multiply bean yield of calculators by 2
 		passive:multiply calculatorBeans yield of calculators by 2
         req:1 calculator
@@ -724,7 +729,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
-		cost:calculatorBase * pow(10,2) beans
+		cost:1 bean
 		passive:multiply bean yield of calculators by 2
 		passive:multiply calculatorBeans yield of calculators by 2
 		req:5 calculators
@@ -733,7 +738,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
-		cost:calculatorBase * pow(10,3) beans
+		cost:1 bean
 		passive:multiply bean yield of calculators by 2
 		passive:multiply calculatorBeans yield of calculators by 2
 		req:10 calculators
@@ -742,7 +747,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
-		cost:calculatorBase * pow(10,4) beans
+		cost:1 bean
 		passive:multiply bean yield of calculators by 2
 		passive:multiply calculatorBeans yield of calculators by 2
 		req:25 calculators
@@ -751,7 +756,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
-		cost:calculatorBase * pow(10,5) beans
+		cost:1 bean
 		passive:multiply bean yield of calculators by 2
 		passive:multiply calculatorBeans yield of calculators by 2
 		req:50 calculators
@@ -760,7 +765,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
-		cost:calculatorBase * pow(10,7) beans
+		cost:1 bean
 		passive:multiply bean yield of calculators by 2
 		passive:multiply calculatorBeans yield of calculators by 2
 		req:100 calculators
@@ -769,7 +774,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
-		cost:calculatorBase * pow(10,9) beans
+		cost:1 bean
 		passive:multiply bean yield of calculators by 2
 		passive:multiply calculatorBeans yield of calculators by 2
 		req:150 calculators
@@ -778,7 +783,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
-		cost:calculatorBase * pow(10,11) beans
+		cost:1 bean
 		passive:multiply bean yield of calculators by 2
 		passive:multiply calculatorBeans yield of calculators by 2
 		req:200 calculators
@@ -787,7 +792,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
-		cost:calculatorBase * pow(10,14) beans
+		cost:1 bean
 		passive:multiply bean yield of calculators by 2
 		passive:multiply calculatorBeans yield of calculators by 2
 		req:250 calculators
@@ -796,7 +801,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
-		cost:calculatorBase * pow(10,17) beans
+		cost:1 bean
 		passive:multiply bean yield of calculators by 2
 		passive:multiply calculatorBeans yield of calculators by 2
 		req:300 calculators
@@ -808,7 +813,7 @@ Upgrades
 		name:Upgrade
 		desc:Description.<//><b>Effect:</b><.>Conveyor belts are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
-		cost:conveyorBeltBase * 10 beans
+		cost:1 bean
 		passive:multiply bean yield of conveyorBelts by 2
 		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
         req:1 conveyorBelt
@@ -817,7 +822,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
-		cost:conveyorBeltBase * pow(10,2) beans
+		cost:1 bean
 		passive:multiply bean yield of conveyorBelts by 2
 		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
 		req:5 conveyorBelts
@@ -826,7 +831,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
-		cost:conveyorBeltBase * pow(10,3) beans
+		cost:1 bean
 		passive:multiply bean yield of conveyorBelts by 2
 		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
 		req:10 conveyorBelts
@@ -835,7 +840,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
-		cost:conveyorBeltBase * pow(10,4) beans
+		cost:1 bean
 		passive:multiply bean yield of conveyorBelts by 2
 		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
 		req:25 conveyorBelts
@@ -844,7 +849,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
-		cost:conveyorBeltBase * pow(10,5) beans
+		cost:1 bean
 		passive:multiply bean yield of conveyorBelts by 2
 		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
 		req:50 conveyorBelts
@@ -853,7 +858,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
-		cost:conveyorBeltBase * pow(10,7) beans
+		cost:1 bean
 		passive:multiply bean yield of conveyorBelts by 2
 		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
 		req:100 conveyorBelts
@@ -862,7 +867,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
-		cost:conveyorBeltBase * pow(10,9) beans
+		cost:1 bean
 		passive:multiply bean yield of conveyorBelts by 2
 		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
 		req:150 conveyorBelts
@@ -871,7 +876,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
-		cost:conveyorBeltBase * pow(10,11) beans
+		cost:1 bean
 		passive:multiply bean yield of conveyorBelts by 2
 		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
 		req:200 conveyorBelts
@@ -880,7 +885,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
-		cost:conveyorBeltBase * pow(10,14) beans
+		cost:1 bean
 		passive:multiply bean yield of conveyorBelts by 2
 		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
 		req:250 conveyorBelts
@@ -889,7 +894,7 @@ Upgrades
 		name:Upgrade
 		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
 		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
-		cost:conveyorBeltBase * pow(10,17) beans
+		cost:1 bean
 		passive:multiply bean yield of conveyorBelts by 2
 		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
 		req:300 conveyorBelts
