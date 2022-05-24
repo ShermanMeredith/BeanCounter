@@ -1,22 +1,31 @@
+
+//=============================================================================
 Let's make a game!
+//=============================================================================
 	name:Bean Counter
 	by:Thnod
 	desc:beans
 	created:13/05/2022
 	updated:20/05/2022
-	version:0.1.3a
+	version:0.2.0
 
+//=============================================================================
 Settings
+//=============================================================================
 	background:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/BankVault.jpg
-	building cost increase:115%
+	building cost increase:100%
 	building cost refund:50%
 	spritesheet:icons, 48 by 48, https://orteil.dashnet.org/igm/stuff/bunnyIcons.png
 	stylesheet:https://orteil.dashnet.org/igm/stuff/bigBlue.css
 
+//=============================================================================
 Layout
+//=============================================================================
 	use default
 		
+//=============================================================================
 Buttons
+//=============================================================================
 	*beanButton
 		name:Count the bean
 		desc:Click this bean to count it
@@ -76,7 +85,9 @@ Buttons
         hidden
 
 		
+//=============================================================================
 Resources
+//=============================================================================
 	*bean|beans
 		name:Bean|Beans
 		desc:These are your beans
@@ -132,97 +143,285 @@ Resources
 
     *releasedPepper|releasedPeppers
         hidden
+
+    //-------------------------------------------------------------------------
+    // GLOBAL VARIABLES
+    //-------------------------------------------------------------------------
+    *costPercentIncrease
+        // change this when changing building cost increase
+        is always:115
+        hidden
+
+    // --------------
+    // COFFEE MACHINE
+    // --------------
+    *coffeeMachineBase
+        is always:10
+        hidden
+
+    *coffeeMachineCost
+        is always:coffeeMachineBase * pow(coffeeMachines+1,(costPercentIncrease/100))
+        on tick:multiply cost of coffeeMachine by coffeeMachineCost
+        hidden
+
+    *coffeeMachineBeans
+        hidden
+
+    // ------
+    // ABACUS
+    // ------
+    *abacusBase
+        is always:50
+        hidden
+
+    *abacusCost
+        is always:abacusBase * pow(abacuses+1,(costPercentIncrease/100))
+        on tick:multiply cost of abacus by abacusCost
+        hidden
+
+    *abacusBeans
+        hidden
+
+    // -----
+    // SCALE
+    // -----
+    *scaleBase
+        is always:550
+        hidden
+
+    *scaleCost
+        is always:scaleBase * pow(scales+1,(costPercentIncrease/100))
+        on tick:multiply cost of scale by scaleCost
+        hidden
+
+    *scaleBeans
+        hidden
+
+    // ----------
+    // CALCULATOR
+    // ----------
+    *calculatorBase
+        is always:6000
+        hidden
+
+    *calculatorCost
+        is always:calculatorBase * pow(calculators+1,(costPercentIncrease/100))
+        on tick:multiply cost of calculator by calculatorCost
+        hidden
+
+    *calculatorBeans
+        hidden
+
+    // -------------
+    // CONVEYOR BELT
+    // -------------
+    *conveyorBeltBase
+        is always:65000
+        hidden
+
+    *conveyorBeltCost
+        is always:conveyorBeltBase * pow(conveyorBelts+1,(costPercentIncrease/100))
+        on tick:multiply cost of conveyorBelt by conveyorBeltCost
+        hidden
+
+    *conveyorBeltBeans
+        hidden
+
+    // --------
+    // COMPUTER
+    // --------
+    *computerBase
+        is always:600000
+        hidden
+
+    *computerCost
+        is always:computerBase * pow(computers+1,(costPercentIncrease/100))
+        on tick:multiply cost of computer by computerCost
+        hidden
+    
+    *computerBeans
+        hidden
+
+    // -------------
+    // SUPERCOMPUTER
+    // -------------
+    *supercomputerBase
+        is always:10000000
+        hidden
+
+    *supercomputerCost
+        is always:supercomputerBase * pow(supercomputers+1,(costPercentIncrease/100))
+        on tick:multiply cost of supercomputer by supercomputerCost
+        hidden
+    
+    *supercomputerBeans
+        hidden
+
+    // --------
+    // INTERNET
+    // --------
+    *internetBase
+        is always:165000000
+        hidden
+
+    *internetCost
+        is always:internetBase * pow(internets+1,(costPercentIncrease/100))
+        on tick:multiply cost of internet by internetCost
+        hidden
+    
+    *internetBeans
+        hidden
+
+    // ------------------------
+    // ARTIFICIAL INTELLIEGENCE
+    // ------------------------
+    *aiBase
+        is always:2550000000
+        hidden
+        
+    *aiCost
+        is always:aiBase * pow(ais+1,(costPercentIncrease/100))
+        on tick:multiply cost of ai by aiCost
+        hidden
+    
+    *aiBeans
+        hidden
+
+    // ----------
+    // PRESCIENCE
+    // ----------
+    *prescienceBase
+        is always:37500000000
+        hidden
+
+    *prescienceCost
+        is always:prescienceBase * pow(prescience+1,(costPercentIncrease/100))
+        on tick:multiply cost of prescience by prescienceCost
+        hidden
+    
+    *prescienceBeans
+        hidden
+
+    // -----------
+    // OMNISCIENCE
+    // -----------
+    *omniscienceBase
+        is always:1000000000000
+        on tick:multiply cost of omniscience by (omniscienceBase * pow(omniscience+1,(costPercentIncrease/100)))
+        hidden
+    
+    *omniscienceCost
+        is always:omniscienceBase * pow(omniscience+1,(costPercentIncrease/100))
+        on tick:multiply cost of omniscience by omniscienceCost
+        hidden
+
+    *omniscienceBeans
+        hidden
 		
+//=============================================================================
 Buildings
+//=============================================================================
 	*TEMPLATE
 		on click:anim glow
 
     *coffeeMachine|coffeeMachines
         name:Coffee machine
-        desc:Coffee helps you count faster
-        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_coffeemachine.png
-        cost:15 beans
-        on tick:yield 0.1 bean
+        desc:<b>Coffee helps you count faster</b><//>each coffee machine helps count <b>[coffeeMachineBase/10 * pow(2,(have coffeeUpgrade1 + have coffeeUpgrade2 + have coffeeUpgrade3 + have coffeeUpgrade4 + have coffeeUpgrade5 + have coffeeUpgrade6 + have coffeeUpgrade7 + have coffeeUpgrade8 + have coffeeUpgrade9 + have coffeeUpgrade10))]</b> beans per second<//>[coffeeMachines] coffee machines helping you count <b>[coffeeMachineBase/10 * coffeeMachines * pow(2,(have coffeeUpgrade1 + have coffeeUpgrade2 + have coffeeUpgrade3 + have coffeeUpgrade4 + have coffeeUpgrade5 + have coffeeUpgrade6 + have coffeeUpgrade7 + have coffeeUpgrade8 + have coffeeUpgrade9 + have coffeeUpgrade10))]</b> beans per second<//><b>[coffeeMachineBeans]</b> beans counted with help from coffee so far
+        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_coffeemachine.png
+        cost:1 bean
+        on tick:yield (coffeeMachineBase/10) beans
+        on tick:yield (coffeeMachineBase/10) coffeeMachineBeans
+        req:beans:earned >= coffeeMachineBase/5
 
     *abacus|abacuses
         name:Abacus
-        desc:An archaic device to help count your beans
-        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_abacus.png
-        cost:50 beans
-        on tick:yield 1 bean
-        req:10 beans:earned
+        desc:<b>An archaic device to help count your beans</b><//>each abacus counts <b>[abacusBase/10 * pow(2,(have abacusUpgrade1 + have abacusUpgrade2 + have abacusUpgrade3 + have abacusUpgrade4 + have abacusUpgrade5 + have abacusUpgrade6 + have abacusUpgrade7 + have abacusUpgrade8 + have abacusUpgrade9 + have abacusUpgrade10))]</b> beans per second<//>[abacuses] abacuses counting <b>[abacusBase/10 * abacuses * pow(2,(have abacusUpgrade1 + have abacusUpgrade2 + have abacusUpgrade3 + have abacusUpgrade4 + have abacusUpgrade5 + have abacusUpgrade6 + have abacusUpgrade7 + have abacusUpgrade8 + have abacusUpgrade9 + have abacusUpgrade10))]</b> beans per second<//><b>[abacusBeans]</b> beans counted with abacuses so far
+        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_abacus.png
+        cost:1 bean
+        on tick:yield (abacusBase/10) beans
+        on tick:yield (abacusBase/10) abacusBeans
+        req:beans:earned >= abacusBase/5
 		
 	*scale|scales
 		name:Scale
-		desc:A device to count beans in bulk
-		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_scale.png
-		cost:550 beans
-		on tick:yield 10 beans
-		req:100 beans:earned
+		desc:<b>A device to count beans in bulk</b><//>each scale counts <b>[scaleBase/10 * pow(2,(have scaleUpgrade1 + have scaleUpgrade2 + have scaleUpgrade3 + have scaleUpgrade4 + have scaleUpgrade5 + have scaleUpgrade6 + have scaleUpgrade7 + have scaleUpgrade8 + have scaleUpgrade9 + have scaleUpgrade10))]</b> beans per second<//>[scales] scales counting <b>[scaleBase/10 * scales * pow(2,(have scaleUpgrade1 + have scaleUpgrade2 + have scaleUpgrade3 + have scaleUpgrade4 + have scaleUpgrade5 + have scaleUpgrade6 + have scaleUpgrade7 + have scaleUpgrade8 + have scaleUpgrade9 + have scaleUpgrade10))]</b> beans per second<//><b>[scaleBeans]</b> beans counted with scales so far
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
+        cost:1 bean
+        on tick:yield (scaleBase/10) beans
+        on tick:yield (scaleBase/10) scaleBeans
+        req:beans:earned >= scaleBase/5
 
     *calculator|calculators
         name:Calculator
-        desc:Helps you count
-        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_calculator.png
-        cost:6000 beans
-        on tick:yield 50 beans
-        req:1200 beans:earned
+        desc:<b>Helps you count</b><//>each calculator counts <b>[calculatorBase/10 * pow(2,(have calculatorUpgrade1 + have calculatorUpgrade2 + have calculatorUpgrade3 + have calculatorUpgrade4 + have calculatorUpgrade5 + have calculatorUpgrade6 + have calculatorUpgrade7 + have calculatorUpgrade8 + have calculatorUpgrade9 + have calculatorUpgrade10))]</b> beans per second<//>[calculators] calculators counting <b>[calculatorBase/10 * calculators * pow(2,(have calculatorUpgrade1 + have calculatorUpgrade2 + have calculatorUpgrade3 + have calculatorUpgrade4 + have calculatorUpgrade5 + have calculatorUpgrade6 + have calculatorUpgrade7 + have calculatorUpgrade8 + have calculatorUpgrade9 + have calculatorUpgrade10))]</b> beans per second<//><b>[calculatorBeans]</b> beans counted with calculators so far
+        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
+        cost:1 bean
+        on tick:yield (calculatorBase/10) beans
+        on tick:yield (calculatorBase/10) calculatorBeans
+        req:beans:earned >= calculatorBase/5
 
     *conveyorBelt|conveyorBelts
         name:Conveyor belt
-        desc:Sorts the incoming beans to count them
-        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_conveyorbelt.png
-        cost:65000 beans
-        on tick:yield 250 beans
-        req:15000 beans:earned
+        desc:<b>Sorts the incoming beans to count them</b><//>each conveyor belt counts <b>[conveyorBeltBase/10 * pow(2,(have cBeltUpgrade1 + have cBeltUpgrade2 + have cBeltUpgrade3 + have cBeltUpgrade4 + have cBeltUpgrade5 + have cBeltUpgrade6 + have cBeltUpgrade7 + have cBeltUpgrade8 + have cBeltUpgrade9 + have cBeltUpgrade10))]</b> beans per second<//>[conveyorBelts] conveyor belts counting <b>[conveyorBeltBase/10 * conveyorBelts * pow(2,(have cBeltUpgrade1 + have cBeltUpgrade2 + have cBeltUpgrade3 + have cBeltUpgrade4 + have cBeltUpgrade5 + have cBeltUpgrade6 + have cBeltUpgrade7 + have cBeltUpgrade8 + have cBeltUpgrade9 + have cBeltUpgrade10))]</b> beans per second<//><b>[conveyorBeltBeans]</b> beans counted with conveyor belts so far
+        icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
+        cost:1 bean
+        on tick:yield (conveyorBeltBase/10) beans
+        on tick:yield (conveyorBeltBase/10) conveyorBeltBeans
+        req:bean:earned >= conveyorBeltBase/5
 
     *computer|computers
         name:Computer
-        desc:Computes beans lightning fast
+        desc:<b>Computes beans lightning fast</b><//>each computer counts <b>[computerBase/10]</b> beans per second<//>[computers] computers counting <b>[computerBase/10 * computers]</b> beans per second<//><b>[computerBeans]</b> beans counted with computers so far
         icon:icons[3,0]
-        cost:600000 beans
-        on tick:yield 1500 beans
-        req:120000 beans:earned
+        cost:1 bean
+        on tick:yield (computerBase/10) beans
+        on tick:yield (computerBase/10) computerBeans
+        req:beans:earned >= computerBase/5
 
     *supercomputer|supercomputers
         name:Supercomputer
-        desc:Specifically designed to solve complex scientific and industrial challenges
+        desc:<b>Specifically designed to solve complex scientific and industrial challenges</b><//>each supercomputer counts <b>[supercomputerBase/10]</b> beans per second<//>[supercomputers] supercomputers counting <b>[supercomputerBase/10 * supercomputers]</b> beans per second<//><b>[supercomputerBeans]</b> beans counted with supercomputers so far
         icon:icons[3,0]
-        cost:10000000 beans
-        on tick:yield 8000 beans
-        req:2000000 beans:earned
+        cost:1 bean
+        on tick:yield (supercomputerBase/10) beans
+        on tick:yield (supercomputerBase/10) supercomputerBeans
+        req:beans:earned >= supercomputerBase/5
 
     *internet|internets
         name:Internet
-        desc:Harness the power of every computer on the planet
+        desc:<b>Harness the power of every computer on the planet</b><//>each internet counts <b>[internetBase/10]</b> beans per second<//>[internets] internets counting <b>[internetBase/10 * internets]</b> beans per second<//><b>[internetBeans]</b> beans counted with internets so far
         icon:icons[3,0]
-        cost:165000000 beans
-        on tick:yield 50000 beans
-        req:200 beans:earned
+        cost:1 bean
+        on tick:yield (internetBase/10) beans
+        on tick:yield (internetBase/10) internetBeans
+        req:beans:earned >= internetBase/5
 
     *ai|ais
         name:Artificial Intelligence
-        desc:The singularity is here to help you count beans
+        desc:<b>The singularity is here to help you count beans</b><//>each AI counts <b>[aiBase/10]</b> beans per second<//>[ais] ais counting <b>[aiBase/10 * ais]</b> beans per second<//><b>[aiBeans]</b> beans counted with AIs so far
         icon:icons[3,0]
-        cost:2550000000 beans
-        on tick:yield 250000 beans
-        req:500000000 beans:earned
+        cost:1 bean
+        on tick:yield (aiBase/10) beans
+        on tick:yield (aiBase/10) aiBeans
+        req:beans:earned >= aiBase/5
 
     *prescience
         name:Prescience
-        desc:Know how many beans there are ahead of time
+        desc:<b>Know how many beans there are ahead of time</b><//>each level of prescience counts <b>[prescienceBase/10]</b> beans per second<//>[prescience] levels of prescience counting <b>[prescienceBase/10 * prescience]</b> beans per second<//><b>[prescienceBeans]</b> beans counted with prescience so far
         icon:icons[3,0]
-        cost:37500000000 beans
-        on tick:yield 1500000 beans
-        req:8000000000 beans:earned
+        cost:1 bean
+        on tick:yield (prescienceBase/10) beans
+        on tick:yield (prescienceBase/10) prescienceBeans
+        req:beans:earned >= prescienceBase/5
 
     *omniscience
         name:Omniscience
-        desc:Know how many beans will ever be
+        desc:<b>Know how many beans will ever be</b><//>each level of omniscience counts <b>[omniscienceBase/10]</b> beans per second<//>[omniscience] levels of omniscience counting <b>[omniscienceBase/10 * omniscience]</b> beans per second<//><b>[omniscienceBeans]</b> beans counted with omniscience so far
         icon:icons[3,0]
-        cost:1000000000000 beans
-        on tick:yield 1666000 beans
-        req:200000000000 beans:earned
+        cost:1 bean
+        on tick:yield (omniscienceBase/10) beans
+        on tick:yield (omniscienceBase/10) omniscienceBeans
+        req:beans:earned > omniscienceBase/5
 
 //=============================================================================
 Upgrades
@@ -233,90 +432,467 @@ Upgrades
     //-------------------------------------------------------------------------
     // COFFEE UPGRADES
     //-------------------------------------------------------------------------
-	*specialtyBeans
+	*coffeeUpgrade1
 		name:Specialty beans
 		desc:Better beans for better bean counting.<//><b>Effect:</b><.>Coffee machines are twice as efficient
-		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
-		cost:100 beans
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
+		cost:coffeeMachineBase * 10 beans
 		passive:multiply bean yield of coffeeMachines by 2
+		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
         req:1 coffeeMachines
 
-	*precisionGrinder
+	*coffeeUpgrade2
 		name:Precision grinder
 		desc:Consistent particle size enables uniform coffee extraction for a better brew.<//><b>Effect:</b><.>Coffee machines are twice as efficient
-		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
-		cost:1000 beans
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
+		cost:coffeeMachineBase * pow(10,2) beans
 		passive:multiply bean yield of coffeeMachines by 2
+		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:5 coffeeMachines
 
-	*mokaPots
+	*coffeeUpgrade3
 		name:Moka pots
 		desc:Brew a stronger coffee right on the stove top.<//><b>Effect:</b><.>Coffee machines are twice as efficient
-		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
-		cost:10000 beans
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
+		cost:coffeeMachineBase * pow(10,3) beans
 		passive:multiply bean yield of coffeeMachines by 2
+		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:10 coffeeMachines
 
-	*roasters
+	*coffeeUpgrade4
 		name:In-house roaster
 		desc:Personalized coffee for that perfect bean counting mood.<//><b>Effect:</b><.>Coffee machines are twice as efficient
-		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
-		cost:100000 beans
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
+		cost:coffeeMachineBase * pow(10,4) beans
 		passive:multiply bean yield of coffeeMachines by 2
+		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:25 coffeeMachines
 
-	*espresso
+	*coffeeUpgrade5
 		name:Espresso attachment
 		desc:9 bars of pressure for the maximum coffee strength.<//><b>Effect:</b><.>Coffee machines are twice as efficient
-		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
-		cost:1000000 beans
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
+		cost:coffeeMachineBase * pow(10,5) beans
 		passive:multiply bean yield of coffeeMachines by 2
+		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:50 coffeeMachines
 
-	*baristas
+	*coffeeUpgrade6
 		name:Personal barista
-		desc:Pretty sure she’s flirting with you, go ask her out.<//><b>Effect:</b><.>Coffee machines are twice as efficient
-		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
-		cost:100000000 beans
+		desc:Pretty sure she's flirting with you, go ask her out.<//><b>Effect:</b><.>Coffee machines are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
+		cost:coffeeMachineBase * pow(10,7) beans
 		passive:multiply bean yield of coffeeMachines by 2
+		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:100 coffeeMachines
 
-	*latteArt
+	*coffeeUpgrade7
 		name:Latte art
 		desc:Coffee with a leaf is better than coffee with no leaf.<//><b>Effect:</b><.>Coffee machines are twice as efficient
-		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
-		cost:10000000000 beans
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
+		cost:coffeeMachineBase * pow(10,9) beans
 		passive:multiply bean yield of coffeeMachines by 2
+		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:150 coffeeMachines
 
-	*coldBrew
+	*coffeeUpgrade8
 		name:Cold brew
 		desc:Brew for 24 hours to get a thick coffee concentrate.<//><b>Effect:</b><.>Coffee machines are twice as efficient
-		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
-		cost:1000000000000 beans
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
+		cost:coffeeMachineBase * pow(10,11) beans
 		passive:multiply bean yield of coffeeMachines by 2
+		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:200 coffeeMachines
 
-	*ivDrip
+	*coffeeUpgrade9
 		name:IV drip
 		desc:Your mouth is freed up to count beans faster.<//><b>Effect:</b><.>Coffee machines are twice as efficient
-		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
-		cost:1000000000000000 beans
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
+		cost:coffeeMachineBase * pow(10,14) beans
 		passive:multiply bean yield of coffeeMachines by 2
+		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:250 coffeeMachines
 
-	*particleAccelerator
+	*coffeeUpgrade10
 		name:Particle accelerator
 		desc:Break coffee into fundamental particles before brewing.<//><b>Effect:</b><.>Coffee machines are twice as efficient
-		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_specialtybeans.png
-		cost:1000000000000000000 beans
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_coffeemachine.png
+		cost:coffeeMachineBase * pow(10,17) beans
 		passive:multiply bean yield of coffeeMachines by 2
+		passive:multiply coffeeMachineBeans yield of coffeeMachines by 2
 		req:300 coffeeMachines
 
     //-------------------------------------------------------------------------
     // ABACUS UPGRADES
     //-------------------------------------------------------------------------
+    *abacusUpgrade1
+		name:Lubricated beads
+		desc:Slicker beads for faster counting.<//><b>Effect:</b><.>Abacuses are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
+		cost:abacusBase * 10 beans
+		passive:multiply bean yield of abacuses by 2
+		passive:multiply abacusBeans yield of abacuses by 2
+        req:1 abacus
 
+	*abacusUpgrade2
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
+		cost:abacusBase * pow(10,2) beans
+		passive:multiply bean yield of abacuses by 2
+		passive:multiply abacusBeans yield of abacuses by 2
+		req:5 abacuses
+
+	*abacusUpgrade3
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
+		cost:abacusBase * pow(10,3) beans
+		passive:multiply bean yield of abacuses by 2
+		passive:multiply abacusBeans yield of abacuses by 2
+		req:10 abacuses
+
+	*abacusUpgrade4
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
+		cost:abacusBase * pow(10,4) beans
+		passive:multiply bean yield of abacuses by 2
+		passive:multiply abacusBeans yield of abacuses by 2
+		req:25 abacuses
+
+	*abacusUpgrade5
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
+		cost:abacusBase * pow(10,5) beans
+		passive:multiply bean yield of abacuses by 2
+		passive:multiply abacusBeans yield of abacuses by 2
+		req:50 abacuses
+
+	*abacusUpgrade6
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
+		cost:abacusBase * pow(10,7) beans
+		passive:multiply bean yield of abacuses by 2
+		passive:multiply abacusBeans yield of abacuses by 2
+		req:100 abacuses
+
+	*abacusUpgrade7
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
+		cost:abacusBase * pow(10,9) beans
+		passive:multiply bean yield of abacuses by 2
+		passive:multiply abacusBeans yield of abacuses by 2
+		req:150 abacuses
+
+	*abacusUpgrade8
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
+		cost:abacusBase * pow(10,11) beans
+		passive:multiply bean yield of abacuses by 2
+		passive:multiply abacusBeans yield of abacuses by 2
+		req:200 abacuses
+
+	*abacusUpgrade9
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Abacuses are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
+		cost:abacusBase * pow(10,14) beans
+		passive:multiply bean yield of abacuses by 2
+		passive:multiply abacusBeans yield of abacuses by 2
+		req:250 abacuses
+
+	*abacusUpgrade10
+		name:Quantum abacuses
+		desc:Count using the quantum superpositions of the beads.<//><b>Effect:</b><.>Abacuses are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_upgrade_abacus.png
+		cost:abacusBase * pow(10,17) beans
+		passive:multiply bean yield of abacuses by 2
+		passive:multiply abacusBeans yield of abacuses by 2
+		req:300 abacuses
+
+    //-------------------------------------------------------------------------
+    // SCALE UPGRADES
+    //-------------------------------------------------------------------------
+    *scaleUpgrade1
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
+		cost:scaleBase * 10 beans
+		passive:multiply bean yield of scales by 2
+		passive:multiply abacusBeans yield of scales by 2
+        req:1 scales
+
+	*scaleUpgrade2
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
+		cost:scaleBase * pow(10,2) beans
+		passive:multiply bean yield of scales by 2
+		passive:multiply abacusBeans yield of scales by 2
+		req:5 scales
+
+	*scaleUpgrade3
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
+		cost:scaleBase * pow(10,3) beans
+		passive:multiply bean yield of scales by 2
+		passive:multiply abacusBeans yield of scales by 2
+		req:10 scales
+
+	*scaleUpgrade4
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
+		cost:scaleBase * pow(10,4) beans
+		passive:multiply bean yield of scales by 2
+		passive:multiply abacusBeans yield of scales by 2
+		req:25 scales
+
+	*scaleUpgrade5
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
+		cost:scaleBase * pow(10,5) beans
+		passive:multiply bean yield of scales by 2
+		passive:multiply abacusBeans yield of scales by 2
+		req:50 scales
+
+	*scaleUpgrade6
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
+		cost:scaleBase * pow(10,7) beans
+		passive:multiply bean yield of scales by 2
+		passive:multiply abacusBeans yield of scales by 2
+		req:100 scales
+
+	*scaleUpgrade7
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
+		cost:scaleBase * pow(10,9) beans
+		passive:multiply bean yield of scales by 2
+		passive:multiply abacusBeans yield of scales by 2
+		req:150 scales
+
+	*scaleUpgrade8
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
+		cost:scaleBase * pow(10,11) beans
+		passive:multiply bean yield of scales by 2
+		passive:multiply abacusBeans yield of scales by 2
+		req:200 scales
+
+	*scaleUpgrade9
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
+		cost:scaleBase * pow(10,14) beans
+		passive:multiply bean yield of scales by 2
+		passive:multiply abacusBeans yield of scales by 2
+		req:250 scales
+
+	*scaleUpgrade10
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Scales are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_scale.png
+		cost:scaleBase * pow(10,17) beans
+		passive:multiply bean yield of scales by 2
+		passive:multiply abacusBeans yield of scales by 2
+		req:300 scales
+
+    //-------------------------------------------------------------------------
+    // CALCULATOR UPGRADES
+    //-------------------------------------------------------------------------
+    *calculatorUpgrade1
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
+		cost:calculatorBase * 10 beans
+		passive:multiply bean yield of calculators by 2
+		passive:multiply calculatorBeans yield of calculators by 2
+        req:1 calculator
+
+	*calculatorUpgrade2
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
+		cost:calculatorBase * pow(10,2) beans
+		passive:multiply bean yield of calculators by 2
+		passive:multiply calculatorBeans yield of calculators by 2
+		req:5 calculators
+
+	*calculatorUpgrade3
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
+		cost:calculatorBase * pow(10,3) beans
+		passive:multiply bean yield of calculators by 2
+		passive:multiply calculatorBeans yield of calculators by 2
+		req:10 calculators
+
+	*calculatorUpgrade4
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
+		cost:calculatorBase * pow(10,4) beans
+		passive:multiply bean yield of calculators by 2
+		passive:multiply calculatorBeans yield of calculators by 2
+		req:25 calculators
+
+	*calculatorUpgrade5
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
+		cost:calculatorBase * pow(10,5) beans
+		passive:multiply bean yield of calculators by 2
+		passive:multiply calculatorBeans yield of calculators by 2
+		req:50 calculators
+
+	*calculatorUpgrade6
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
+		cost:calculatorBase * pow(10,7) beans
+		passive:multiply bean yield of calculators by 2
+		passive:multiply calculatorBeans yield of calculators by 2
+		req:100 calculators
+
+	*calculatorUpgrade7
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
+		cost:calculatorBase * pow(10,9) beans
+		passive:multiply bean yield of calculators by 2
+		passive:multiply calculatorBeans yield of calculators by 2
+		req:150 calculators
+
+	*calculatorUpgrade8
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
+		cost:calculatorBase * pow(10,11) beans
+		passive:multiply bean yield of calculators by 2
+		passive:multiply calculatorBeans yield of calculators by 2
+		req:200 calculators
+
+	*calculatorUpgrade9
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
+		cost:calculatorBase * pow(10,14) beans
+		passive:multiply bean yield of calculators by 2
+		passive:multiply calculatorBeans yield of calculators by 2
+		req:250 calculators
+
+	*calculatorUpgrade10
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Calculators are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_calculator.png
+		cost:calculatorBase * pow(10,17) beans
+		passive:multiply bean yield of calculators by 2
+		passive:multiply calculatorBeans yield of calculators by 2
+		req:300 calculators
+
+    //-------------------------------------------------------------------------
+    // CONVEYOR BELT UPGRADES
+    //-------------------------------------------------------------------------
+    *cBeltUpgrade1
+		name:Upgrade
+		desc:Description.<//><b>Effect:</b><.>Conveyor belts are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
+		cost:conveyorBeltBase * 10 beans
+		passive:multiply bean yield of conveyorBelts by 2
+		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
+        req:1 conveyorBelt
+
+	*cBeltUpgrade2
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
+		cost:conveyorBeltBase * pow(10,2) beans
+		passive:multiply bean yield of conveyorBelts by 2
+		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
+		req:5 conveyorBelts
+
+	*cBeltUpgrade3
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
+		cost:conveyorBeltBase * pow(10,3) beans
+		passive:multiply bean yield of conveyorBelts by 2
+		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
+		req:10 conveyorBelts
+
+	*cBeltUpgrade4
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
+		cost:conveyorBeltBase * pow(10,4) beans
+		passive:multiply bean yield of conveyorBelts by 2
+		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
+		req:25 conveyorBelts
+
+	*cBeltUpgrade5
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
+		cost:conveyorBeltBase * pow(10,5) beans
+		passive:multiply bean yield of conveyorBelts by 2
+		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
+		req:50 conveyorBelts
+
+	*cBeltUpgrade6
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
+		cost:conveyorBeltBase * pow(10,7) beans
+		passive:multiply bean yield of conveyorBelts by 2
+		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
+		req:100 conveyorBelts
+
+	*cBeltUpgrade7
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
+		cost:conveyorBeltBase * pow(10,9) beans
+		passive:multiply bean yield of conveyorBelts by 2
+		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
+		req:150 conveyorBelts
+
+	*cBeltUpgrade8
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
+		cost:conveyorBeltBase * pow(10,11) beans
+		passive:multiply bean yield of conveyorBelts by 2
+		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
+		req:200 conveyorBelts
+
+	*cBeltUpgrade9
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
+		cost:conveyorBeltBase * pow(10,14) beans
+		passive:multiply bean yield of conveyorBelts by 2
+		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
+		req:250 conveyorBelts
+
+	*cBeltUpgrade10
+		name:Upgrade
+		desc:Description<//><b>Effect:</b><.>Conveyor belts are twice as efficient
+		icon:https://raw.githubusercontent.com/ShermanMeredith/BeanCounter/main/icon_building_conveyorbelt.png
+		cost:conveyorBeltBase * pow(10,17) beans
+		passive:multiply bean yield of conveyorBelts by 2
+		passive:multiply conveyorBeltBeans yield of conveyorBelts by 2
+		req:300 conveyorBelts
 
 Achievements
 	*TEMPLATE
